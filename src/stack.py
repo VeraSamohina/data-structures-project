@@ -41,4 +41,10 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        if len(self.stack) > 0:
+            del_element = self.stack.pop()
+            self.top = self.top.next_node
+            return del_element
+        else:
+            print('стек уже пуст')
+            return None
