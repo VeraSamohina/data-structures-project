@@ -21,6 +21,14 @@ class Stack:
         # Указатель вершины стека. Для пустого стека - None
         self.top = None
 
+    def __str__(self):
+        """
+        Переопределение метода __str__
+
+        :return: строковое представление стека (список объектов)
+        """
+        return ', '.join(self.stack)
+
     def push(self, data):
         """
         Метод для добавления элемента на вершину стека
@@ -30,10 +38,9 @@ class Stack:
         self.data = data
         node = Node(data)
         self.stack.append(self.data)
-       # После добавления элемента в стек, меняем указатель вершины стека и предыдущего узла
+        # После добавления элемента в стек, меняем указатель вершины стека и предыдущего узла
         node.next_node = self.top
         self.top = node
-
 
     def pop(self):
         """

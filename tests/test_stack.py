@@ -1,6 +1,7 @@
 import unittest
 from src.stack import Stack, Node
 
+
 class TestNode(unittest.TestCase):
     def test_next_node(self):
         one = Node(1)
@@ -10,11 +11,13 @@ class TestNode(unittest.TestCase):
         self.assertEqual(two.next_node, 1)
         self.assertEqual(three.next_node, 2)
 
+
 class TestStack(unittest.TestCase):
+
     def test_stack(self):
         stack1 = Stack()
         with self.assertRaises(AttributeError):
-            stack1.top.data, None
+            print(stack1.top.data)
         stack1.push('ten')
         self.assertEqual(stack1.top.data, 'ten')
 
@@ -27,6 +30,14 @@ class TestStack(unittest.TestCase):
         stack2.pop()
         self.assertEqual(stack2.top, None)
         self.assertEqual(stack2.pop(), None)
+
+    def test_str(self):
+        stack3 = Stack()
+        stack3.push('one')
+        stack3.push('two')
+        stack3.push('three')
+        self.assertEqual(str(stack3), 'one, two, three')
+
 
 if __name__ == '__main__':
     unittest.main()
