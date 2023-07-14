@@ -43,3 +43,27 @@ class LinkedList:
 
         ll_string += 'None'
         return ll_string
+
+    def to_list(self) -> list:
+        """
+        Возвращает список с данными, содержащимися в `LinkedList`
+        """
+        lst = []
+        self.current = self.head
+        while self.current is not None:
+            lst.append(self.current.data)
+            self.current = self.current.next_node
+        return lst
+
+    def get_data_by_id(self, id) -> dict:
+        """
+        Возвращает первый найденный в `LinkedList` словарь с ключом 'id'
+        return: словарь из 'LinkedList' по ключу id
+        """
+        for dct in self.to_list():
+            try:
+                id_in_dct = dct['id']
+                if id == id_in_dct:
+                    return dct
+            except TypeError:
+                print('Данные не являются словарем или в словаре нет id')
